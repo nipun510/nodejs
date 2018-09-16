@@ -29,7 +29,7 @@ router.post('/signup', (req, res, next) => {
     });
   });
 /* GET users listing. */
-router.get('/', (req, res, next) => {
+router.get('/', authenticate.verifyUser, (req, res, next) => {
     User.find({})
     .then((users) => {
         res.statusCode = 200;
