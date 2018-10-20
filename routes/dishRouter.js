@@ -10,7 +10,7 @@ const dishRouter = express.Router();
 dishRouter.use(bodyParser.json());
 
 dishRouter.route('/')
-.get(authenticate.verifyUser, (req,res,next) => {
+.get((req,res,next) => {
     Dishes.find({})
     .then((dishes) => {
         res.statusCode = 200;
