@@ -9,8 +9,7 @@ var passport = require('passport');
 var authenticate = require('./authenticate');
 var index = require('./routes/index');
 var users = require('./routes/users');
-var dishRouter = require('./routes/dishRouter');
-var personRouter = require('./routes/personRouter');
+var person = require('./routes/person');
 
 var app = express();
 
@@ -25,7 +24,7 @@ app.all('*', (req, res, next) => {
 
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-const Dishes = require('./models/dishes');
+
 
 // Connection URL
 const url = config.mongoUrl;
@@ -54,8 +53,7 @@ app.use(passport.session());
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/dishes',dishRouter);
-app.use('/persons', personRouter);
+app.use('/person', person);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
