@@ -9,10 +9,10 @@ var passport = require('passport');
 var authenticate = require('./authenticate');
 var index = require('./routes/index');
 var users = require('./routes/users');
-var person = require('./routes/person');
+var person = require('./routes/persons');
 
 var app = express();
-
+/*
 app.all('*', (req, res, next) => {
   if(req.secure){
     next();
@@ -21,7 +21,7 @@ app.all('*', (req, res, next) => {
     res.redirect(307, 'https://' + req.hostname + ":" + app.get('secPort') + req.url)
   }
 });
-
+*/
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
@@ -53,7 +53,7 @@ app.use(passport.session());
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/person', person);
+app.use('/persons', person);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

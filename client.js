@@ -12,7 +12,7 @@ const userData = JSON.stringify({
 var getOption = function(method, url, datalength = 0, token=null){
 	return{
 	  hostname: 'localhost',
-	  port: 3443,
+	  port: 80,
 	  path: url,
 	  method: method,
 	  headers: {
