@@ -9,7 +9,8 @@ var passport = require('passport');
 var authenticate = require('./authenticate');
 var index = require('./routes/index');
 var users = require('./routes/users');
-var person = require('./routes/persons');
+var persons = require('./routes/persons');
+var tweets= require('./routes/tweets');
 
 var app = express();
 /*
@@ -53,7 +54,8 @@ app.use(passport.session());
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/persons', person);
+app.use('/persons', persons);
+app.use('/tweets', tweets);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
